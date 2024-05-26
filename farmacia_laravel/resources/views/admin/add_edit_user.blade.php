@@ -2,11 +2,11 @@
 @section('main-content')
     <section class="content">
         <header
-            class="content flex w-full flex-row items-center justify-center bg-white p-10 pb-8">
+            class="content mt-2 flex w-full flex-row items-center justify-center p-10 pb-8">
             <h1 class="text-2xl font-bold">{{ $title }}</h1>
         </header>
     </section>
-    <section class="mt-10 w-full bg-white p-10" id="cadastro">
+    <section class="mt-10 bg-white p-10" style="margin-right: 300px; margin-left: 450px;" id="cadastro">
         <article class="flex flex-row items-start justify-start" id="formulario">
             <header>
                 <h2 class="text-md font-bold">Dados para cadastro</h2>

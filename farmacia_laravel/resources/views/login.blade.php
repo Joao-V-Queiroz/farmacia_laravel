@@ -11,7 +11,7 @@
 
 <body class="bg-blue-200">
     <div class="mt-80 flex items-center justify-center rounded-2xl border-2 border-solid border-gray-500 bg-white pb-16 pt-2"
-        style="margin-right: 600px; margin-left: 600px;">
+        style="margin-right: 700px; margin-left: 700px;">
         <div class="mt-2 flex flex-col items-center justify-center space-y-6">
             <h1 class="text-xl font-bold">Login</h1>
             <form action="{{ route('login') }}" method="POST">
