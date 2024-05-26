@@ -6,6 +6,16 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::redirect('/login', '/admin')->name('login');
+
+Route::get('/logout', function () {
+	session()->flush();
+	Auth::logout();
+
+	return redirect('/');
+})->name('logout');
+
 Route::get('/admin', [UserController::class , 'index'])->name('user.index');
 #grupo de rotas
 Route::group(['prefix' => 'admin/user'], function(){

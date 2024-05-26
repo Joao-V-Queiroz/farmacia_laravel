@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Session;
 
 class UserController extends Controller
 {
@@ -24,9 +25,27 @@ class UserController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required|email|unique:users',
-            'password' => 'required|min:6',
             'photo' => 'mimes:jpeg,jpg,png|max:2048'
         ]);
+
+        $filePath = public_path('uploads');
+        $insert = new User();
+        $insert->name = $request->name;
+        $insert->email = $request->email;
+        $insert->password = bcrypt('password');
+
+        if ($request->hasFile('photo')) {
+            $file = $request->file('photo');
+            $fileName = time() . '.' . $file->getClientOriginalName();
+            $file->move($filePath, $fileName);
+            $insert->photo = $fileName;
+        }
+
+        $result = $insert->save();
+        Session::flash('sucess', 'Usuário adicionado com sucesso');
+        return redirect()->route('user.index');
+
+
     }
 
     public function show(string $id)
