@@ -1,7 +1,7 @@
 @extends('layouts.content')
 @section('main-content')
     <section
-        class="content ml-10 mr-10 mt-36 rounded-2xl border-2 border-solid border-gray-500 bg-white p-4 pb-6">
+        class="content mt-36 rounded-2xl border-2 border-solid border-gray-500 bg-white p-6" style="margin-right: 300px; margin-left: 500px;">
         <header class="flex flex-row items-end justify-end">
             <button class="rounded-md bg-blue-200 p-2 hover:bg-blue-400"><a
                     class="text-black" href="{{ route('user.create') }}">Novo
@@ -83,7 +83,7 @@
                                     onsubmit="return confirm('Voce deseja mesmo excluir este usuario?');">
                                     @csrf
                                     @method('DELETE')
-                                    <button class="rounded-md bg-red-400 px-4 py-2 hover:bg-red-400 text-white"
+                                    <button class="rounded-md bg-red-400 px-4 py-2 hover:bg-red-700 text-white"
                                         type="submit">Delete</button>
                                 </form>
                             </td>
