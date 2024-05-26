@@ -15,12 +15,18 @@ class UserController extends Controller
 
     public function create()
     {
-        //
+        $title = 'Add new User';
+        return view('admin.add_edit_user', compact('title'));
     }
 
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|min:6',
+            'photo' => 'mimes:jpeg,jpg,png|max:2048'
+        ]);
     }
 
     public function show(string $id)
