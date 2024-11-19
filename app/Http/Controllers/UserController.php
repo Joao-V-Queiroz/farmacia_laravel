@@ -12,13 +12,13 @@ class UserController extends Controller
     public function index()
     {
         $users = User::latest('id')->get();
-        return view('admin.index', compact('users'));
+        return view('admin.users.index', compact('users'));
     }
 
     public function create()
     {
-        $title = "Add New User";
-        return view('admin.add_edit_user', compact('title'));
+        $title = "Adicionar Novo Usuário";
+        return view('admin.users.add_edit_user', compact('title'));
     }
 
     public function store(Request $request)
@@ -60,7 +60,7 @@ class UserController extends Controller
     {
         $title = "Update User";
         $edit = User::findOrFail($id);
-        return view('admin.add_edit_user', compact('edit', 'title'));
+        return view('admin.users.add_edit_user', compact('edit', 'title'));
     }
 
     public function update(Request $request, $id)
